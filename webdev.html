@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Dev Division - Coding Club</title>
+  <meta name="description" content="Join the Web Dev Division of Coding Club. A crew of builders shipping real, deployed sites together. Open to all students at FT UNSRAT.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/webp" href="images/logo.webp">
+  
+  <!-- Preconnect and Async Font Loading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&family=Outfit:wght@500;700;800&family=Fira+Code:wght@500&display=swap" media="print" onload="this.media='all'">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="webdev-page">
+
+  <!-- Premium Background Elements (Scoped to blue) -->
+  <div class="bg-grid-overlay"></div>
+  <div class="ambient-glows">
+    <div class="glow-blob blob-blue" style="top: 10%; left: 30%; width: 500px; height: 500px; opacity: 0.15;"></div>
+    <div class="glow-blob blob-blue" style="top: 50%; right: 20%; width: 450px; height: 450px; opacity: 0.12;"></div>
+  </div>
+
+  <!-- Interactive Cursor Glow Spotlight -->
+  <div class="cursor-glow" id="cursor-glow"></div>
+
+  <!-- Blueprint Vertical Grid Lines -->
+  <div class="blueprint-grid-lines">
+    <div class="grid-line line-1"></div>
+    <div class="grid-line line-2"></div>
+    <div class="grid-line line-3"></div>
+    <div class="grid-line line-4"></div>
+  </div>
+
+  <!-- Scattered Monospace Code Snippet Watermarks -->
+  <div class="bg-code-watermarks">
+    <div class="watermark wt-left wt-1">import { WebEngine } from 'core';</div>
+    <div class="watermark wt-right wt-2">npm run dev --host</div>
+    <div class="watermark wt-left wt-3">const server = fastify();</div>
+    <div class="watermark wt-right wt-4">git commit -m "feat: setup grid"</div>
+    <div class="watermark wt-left wt-5">res.send({ status: 'running' });</div>
+  </div>
+
+  <!-- Vertical Side Blueprint Rulers -->
+  <div class="bg-ruler bg-ruler-left"></div>
+  <div class="bg-ruler bg-ruler-right"></div>
+
+  <!-- Navigation Bar -->
+  <header id="main-header">
+    <div class="container nav-container">
+      <a href="index.html" class="logo" aria-label="Coding Club Logo">
+        <span class="logo-coding">Cod<span class="logo-i">ı<span class="i-dot"></span></span>ng</span><span class="logo-divider">.</span><span class="logo-club"><span class="logo-letter club-c red">c</span><span class="logo-letter club-l yellow">l</span><span class="logo-letter club-u green">u</span><span class="logo-letter club-b blue">b</span></span>
+      </a>
+      
+      <button class="menu-toggle" id="mobile-menu" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav>
+        <ul class="nav-links" id="nav-links-list">
+          <li><a href="index.html#hero">Home</a></li>
+          <li><a href="index.html#intro">About</a></li>
+          <li><a href="index.html#learn">Skills</a></li>
+          <li class="dropdown">
+            <a href="index.html#divisions" class="dropdown-toggle">Divisions <span class="dropdown-caret">▼</span></a>
+            <ul class="dropdown-menu">
+              <li><a href="webdev.html">Web Dev</a></li>
+              <li><a href="gamedev.html">Game Dev</a></li>
+              <li><a href="python.html">Python</a></li>
+            </ul>
+          </li>
+          <li><a href="index.html#timeline">Achievements</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-cta">
+        <a href="#join-division" class="btn btn-secondary">Join Web Dev</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Division Hero Section -->
+  <section id="division-hero" class="div-hero-sec">
+    <div class="container hero-wrapper">
+      <div class="hero-content reveal reveal-left">
+        <div class="division-badge-pill">Web Development Division</div>
+        <h1 class="hero-headline">
+          Web <span class="word-blue">Dev.</span>
+        </h1>
+        <div class="section-divider divider-blue" style="margin: 0; width: 80px; height: 5px;"></div>
+        <p class="hero-subtext">
+          A crew of builders shipping real sites, together. We design, code, and deploy web applications that solve real-world problems.
+        </p>
+        <div class="hero-ctas">
+          <a href="#work" class="btn btn-primary">See Our Work</a>
+          <a href="#join-division" class="btn btn-secondary">Join the Crew</a>
+        </div>
+      </div>
+      
+      <!-- Code Editor Mockup Typing Display -->
+      <div class="showcase-container reveal reveal-right">
+        <div class="browser-mock">
+          <div class="browser-header">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-yellow"></span>
+            <span class="dot dot-green"></span>
+            <div class="browser-tab">ReactComponent.jsx</div>
+          </div>
+          <div class="browser-content">
+            <div class="code-window" id="typewriter-code-box"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We're About Section -->
+  <section id="about-division" class="section-alt">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <h2>What We're About</h2>
+        <p>No classroom lectures or skill-tier labels here. We run as a unified engineering team.</p>
+        <div class="section-divider divider-blue"></div>
+      </div>
+
+      <div class="pillars-grid">
+        <!-- Pillar 1 -->
+        <div class="pillar-card reveal" style="transition-delay: 0.1s;">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>We build together</h3>
+          <p>
+            We code in pairs, run collaborative hack sessions, and conduct helpful code reviews. We solve bugs as a team, ensuring nobody gets stuck.
+          </p>
+        </div>
+
+        <!-- Pillar 2 -->
+        <div class="pillar-card reveal" style="transition-delay: 0.2s;">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </div>
+          <h3>We ship real things</h3>
+          <p>
+            No mock tutorials that sit on your drive. We deploy production-ready dashboards, event sites, and open-source tools to live hosting servers.
+          </p>
+        </div>
+
+        <!-- Pillar 3 -->
+        <div class="pillar-card reveal" style="transition-delay: 0.3s;">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          </div>
+          <h3>Everyone contributes</h3>
+          <p>
+            Whether you are picking up your first CSS tweak or architecting database clusters, there is a task for you. Beginners pair with senior members to level up fast.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live Project Showcase Section -->
+  <section id="work">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <h2>Student-Built Showcase</h2>
+        <p>Real web projects designed, coded, and deployed by our division members.</p>
+        <div class="section-divider divider-blue"></div>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="filter-tabs-wrapper reveal">
+        <button class="filter-tab active" data-filter="all">All Projects</button>
+        <button class="filter-tab" data-filter="portfolio">Portfolios</button>
+        <button class="filter-tab" data-filter="dashboard">Dashboards</button>
+        <button class="filter-tab" data-filter="e-commerce">E-Commerce</button>
+        <button class="filter-tab" data-filter="tool">Tools</button>
+      </div>
+
+      <!-- Project Grid -->
+      <div class="project-showcase-grid">
+        <!-- Project 1 (Tool) -->
+        <div class="project-card-wrapper reveal" data-category="tool">
+          <div class="browser-mock">
+            <div class="browser-header">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+              <div class="browser-tab">PassGen</div>
+            </div>
+            <div class="browser-content">
+              <div class="showcase-img-placeholder web-project-1">
+                <!-- Visual mock using vector patterns -->
+                <div class="vector-browser-ui">
+                  <div class="nav-line" style="width: 50%;"></div>
+                  <div class="hero-square" style="background-color: var(--google-blue-alpha); display: flex; align-items: center; justify-content: center; font-family: monospace; font-size: 0.8rem; font-weight: bold; color: var(--google-blue);">
+                    p@ssw0rd123!
+                  </div>
+                  <div class="grid-blocks">
+                    <div class="block" style="height: 12px; background-color: #e8eaed;"></div>
+                    <div class="block" style="height: 12px; background-color: var(--google-blue-alpha);"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="project-hover-detail">
+                <h4>PassGen</h4>
+                <p>A lightweight, secure password generator with customizable length, numbers, and symbols.</p>
+                <div class="proj-stack">
+                  <span class="stack-tag">HTML5</span>
+                  <span class="stack-tag">CSS Grid</span>
+                  <span class="stack-tag">Vanilla JS</span>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 (Dashboard) -->
+        <div class="project-card-wrapper reveal" data-category="dashboard">
+          <div class="browser-mock">
+            <div class="browser-header">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+              <div class="browser-tab">UserDirectory</div>
+            </div>
+            <div class="browser-content">
+              <div class="showcase-img-placeholder web-project-2">
+                <div class="vector-browser-ui dashboard-ui">
+                  <div class="sidebar-mock" style="width: 24px;"></div>
+                  <div class="main-panel">
+                    <div class="header-line" style="width: 45%;"></div>
+                    <div class="chart-box" style="display: flex; flex-direction: column; gap: 4px; padding: 4px; border: none; background-color: transparent;">
+                      <div style="height: 6px; background-color: #f1f3f4; border-radius: 2px; width: 90%;"></div>
+                      <div style="height: 6px; background-color: #f1f3f4; border-radius: 2px; width: 75%;"></div>
+                      <div style="height: 6px; background-color: #f1f3f4; border-radius: 2px; width: 85%;"></div>
+                    </div>
+                    <div class="metrics-row">
+                      <div class="metric"></div>
+                      <div class="metric" style="background-color: #e8eaed;"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="project-hover-detail">
+                <h4>UserDirectory</h4>
+                <p>A clean dashboard to fetch, search, filter, and export user profiles from a mock API.</p>
+                <div class="proj-stack">
+                  <span class="stack-tag">React</span>
+                  <span class="stack-tag">CSS Flexbox</span>
+                  <span class="stack-tag">MockAPI</span>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 (E-Commerce) -->
+        <div class="project-card-wrapper reveal" data-category="e-commerce">
+          <div class="browser-mock">
+            <div class="browser-header">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+              <div class="browser-tab">MiniShop</div>
+            </div>
+            <div class="browser-content">
+              <div class="showcase-img-placeholder web-project-3">
+                <div class="vector-browser-ui store-ui">
+                  <div class="nav-line" style="width: 35%; display: flex; justify-content: space-between; align-items: center;">
+                    <div style="height: 4px; background-color: #e8eaed; width: 70%; border-radius: 2px;"></div>
+                    <div style="width: 8px; height: 8px; background-color: var(--google-blue); border-radius: 50%;"></div>
+                  </div>
+                  <div class="store-grid">
+                    <div class="item-card"><div class="img"></div><div class="txt" style="width: 50%;"></div></div>
+                    <div class="item-card"><div class="img" style="background-color: #e8eaed;"></div><div class="txt" style="width: 40%;"></div></div>
+                    <div class="item-card"><div class="img" style="background-color: #e8eaed;"></div><div class="txt" style="width: 60%;"></div></div>
+                    <div class="item-card"><div class="img"></div><div class="txt" style="width: 45%;"></div></div>
+                  </div>
+                </div>
+              </div>
+              <div class="project-hover-detail">
+                <h4>MiniShop</h4>
+                <p>A basic shopping cart implementation with simple product sorting and local storage state.</p>
+                <div class="proj-stack">
+                  <span class="stack-tag">Vue</span>
+                  <span class="stack-tag">LocalStorage</span>
+                  <span class="stack-tag">CSS Grid</span>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4 (Portfolio) -->
+        <div class="project-card-wrapper reveal" data-category="portfolio">
+          <div class="browser-mock">
+            <div class="browser-header">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+              <div class="browser-tab">ProfileHub</div>
+            </div>
+            <div class="browser-content">
+              <div class="showcase-img-placeholder web-project-4">
+                <div class="vector-browser-ui docs-ui">
+                  <div class="left-nav" style="width: 20px;"></div>
+                  <div class="docs-body">
+                    <div class="h-line" style="width: 30%;"></div>
+                    <div style="display: flex; flex-direction: column; align-items: center; gap: 6px; margin-top: 10px;">
+                      <div style="width: 20px; height: 20px; border-radius: 50%; background-color: var(--google-blue-alpha);"></div>
+                      <div class="p-line" style="width: 60%;"></div>
+                      <div class="p-line" style="width: 40%; background-color: #e8eaed;"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="project-hover-detail">
+                <h4>ProfileHub</h4>
+                <p>A clean single-page personal card showcase built to display dev links and bio pages.</p>
+                <div class="proj-stack">
+                  <span class="stack-tag">HTML5</span>
+                  <span class="stack-tag">CSS Variables</span>
+                  <span class="stack-tag">Flexbox</span>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Project Deep-Dive Section -->
+  <section id="deep-dive" class="section-alt">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Flagship Project: LavaLamp</h2>
+        <p>The story behind our glowing CSS blobs and temperature sandbox simulator.</p>
+        <div class="section-divider divider-blue" style="margin-left: 0;"></div>
+      </div>
+
+      <div class="deep-dive-layout">
+        <!-- Story text -->
+        <div class="deep-dive-story reveal reveal-left">
+          <h3>Told as a Team Story</h3>
+          <p>
+            It started during a whiteboard session in Lab Komputer. We wanted to build a lava lamp simulator in the browser using SVG gooey filters and vanilla CSS keyframe blobs.
+          </p>
+          <p>
+            <strong>The Collaboration:</strong> Rian wrote the HTML canvas particle physics logic, while Jessica designed the neon gradient CSS variables. Chris hooked up the slider widgets to control the temperature and rising speed on the fly.
+          </p>
+          <p>
+            We spent hours getting the gooey blur filter to merge particles smoothly without lagging the viewport. After three nights of group debugging and pairing sessions, we solved the rendering repaints. Today, it's one of our most popular sandboxes!
+          </p>
+
+          <div class="dive-tech-stack">
+            <strong>Tech Stack:</strong>
+            <div class="tools-list" style="margin-top: 10px;">
+              <span class="tool-badge">HTML5 Canvas</span>
+              <span class="tool-badge">CSS Animations</span>
+              <span class="tool-badge">SVG gooey filter</span>
+              <span class="tool-badge">Vanilla JS</span>
+            </div>
+          </div>
+
+          <div class="dive-buttons" style="margin-top: 24px;">
+            <a href="#" id="webdev-flagship-btn" class="btn btn-primary">Try LavaLamp Live</a>
+          </div>
+        </div>
+
+        <!-- Visual layout mock browser (Lavalamp simulation) -->
+        <div class="deep-dive-visual reveal reveal-right">
+          <div class="browser-mock">
+            <div class="browser-header">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+              <div class="browser-tab">lavalamp_sandbox.html</div>
+            </div>
+            <div class="browser-content" style="background-color: #0b0c10; display: flex; align-items: center; justify-content: center; height: 100%; min-height: 320px;">
+              <div class="mock-ui mock-ui-lavalamp" style="width: 100%; height: 100%;">
+                <div class="lavalamp-frame">
+                  <div class="lavalamp-cap"></div>
+                  <div class="lavalamp-glass">
+                    <div class="lavalamp-blob blob-large"></div>
+                    <div class="lavalamp-blob blob-mid"></div>
+                    <div class="lavalamp-blob blob-small-1"></div>
+                    <div class="lavalamp-blob blob-small-2"></div>
+                  </div>
+                  <div class="lavalamp-base"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How to Get Involved Section -->
+  <section id="get-involved">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <h2>Jump In This Week</h2>
+        <p>No roadmaps or certifications required. Just pick a meetup or task and join in.</p>
+        <div class="section-divider divider-blue"></div>
+      </div>
+
+      <div class="involved-grid">
+        <!-- Next Meetup -->
+        <div class="involved-card reveal" style="transition-delay: 0.1s;">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <h3>Next Build Session</h3>
+          <p class="meetup-time">Every Tuesday & Thursday @ 16:00 WITA</p>
+          <p>Lab Komputer FT UNSRAT, Kampus Bahu.</p>
+          <p class="details">Bring your laptop. We pair up, open up the boards, and write code together.</p>
+        </div>
+
+        <!-- Open Issues -->
+        <div class="involved-card reveal" style="transition-delay: 0.2s;">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <h3>Open Tasks Looking for Contributors</h3>
+          <ul class="tasks-list">
+            <li>
+              <strong>#104 Blob filter styling</strong>
+              <span>LavaLamp color gradients alignment. (Easy)</span>
+            </li>
+            <li>
+              <strong>#112 Temperature widget hook</strong>
+              <span>Reset parameters controls. (Medium)</span>
+            </li>
+            <li>
+              <strong>#118 Speed adjustment slider</strong>
+              <span>Optimizing canvas event handlings. (Hard)</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Community Invite -->
+        <div class="involved-card reveal" style="transition-delay: 0.3s;">
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <h3>Join the Community</h3>
+          <p>We coordinate all projects, updates, and collaborative build sessions through our Discord server.</p>
+          <div class="involvement-buttons" style="margin-top: 20px; display: flex; flex-direction: column; gap: 12px;">
+            <a href="#" class="btn btn-primary" style="justify-content: center;">Join Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Division CTA Section -->
+  <section id="join-division" class="section-alt">
+    <div class="container text-center">
+      <div class="div-cta-content reveal">
+        <h2 class="cta-headline">Come Build With Us</h2>
+        <p class="cta-subtext" style="max-width: 550px; margin: 0 auto 24px auto;">
+          Whether you are writing your very first layout tags or shipping complete container assemblies, we invite you to build alongside us.
+        </p>
+        <a href="#" class="btn btn-primary btn-large">Join the Web Dev Crew</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer id="main-footer">
+    <div class="container footer-wrapper">
+      <p class="footer-copy">&copy; 2026 Coding Club. Built for developers by developers.</p>
+      <div class="footer-links">
+        <a href="index.html">Homepage</a>
+        <a href="index.html#divisions">Other Divisions</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="script.js" defer></script>
+</body>
+</html>

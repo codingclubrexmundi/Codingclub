@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python Division - Coding Club</title>
+  <meta name="description" content="Join the Python Division of Coding Club. A crew of tinkerers automating, analyzing, and building with code. Open to all students at FT UNSRAT.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/webp" href="images/logo.webp">
+  
+  <!-- Preconnect and Async Font Loading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&family=Outfit:wght@500;700;800&family=Fira+Code:wght@500&display=swap" media="print" onload="this.media='all'">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="python-page">
+
+  <!-- Premium Background Elements (Scoped to green) -->
+  <div class="bg-grid-overlay"></div>
+  <div class="ambient-glows">
+    <div class="glow-blob blob-green" style="top: 10%; left: 30%; width: 500px; height: 500px; opacity: 0.15;"></div>
+    <div class="glow-blob blob-green" style="top: 50%; right: 20%; width: 450px; height: 450px; opacity: 0.12;"></div>
+  </div>
+
+  <!-- Interactive Cursor Glow Spotlight -->
+  <div class="cursor-glow" id="cursor-glow"></div>
+
+  <!-- Blueprint Vertical Grid Lines -->
+  <div class="blueprint-grid-lines">
+    <div class="grid-line line-1" style="border-color: rgba(52, 168, 83, 0.035);"></div>
+    <div class="grid-line line-2" style="border-color: rgba(52, 168, 83, 0.035);"></div>
+    <div class="grid-line line-3" style="border-color: rgba(52, 168, 83, 0.035);"></div>
+    <div class="grid-line line-4" style="border-color: rgba(52, 168, 83, 0.035);"></div>
+  </div>
+
+  <!-- Scattered Monospace Code Snippet Watermarks -->
+  <div class="bg-code-watermarks">
+    <div class="watermark wt-left wt-1">import pandas as pd</div>
+    <div class="watermark wt-right wt-2">print(f"Result: {data.mean()}")</div>
+    <div class="watermark wt-left wt-3">def fibonacci(n): return n if n &lt; 2 else ...</div>
+    <div class="watermark wt-right wt-4">with open('data.json') as f:</div>
+    <div class="watermark wt-left wt-5">plt.plot(x, y, color='green')</div>
+  </div>
+
+  <!-- Vertical Side Blueprint Rulers -->
+  <div class="bg-ruler bg-ruler-left"></div>
+  <div class="bg-ruler bg-ruler-right"></div>
+
+  <!-- Navigation Bar -->
+  <header id="main-header">
+    <div class="container nav-container">
+      <a href="index.html" class="logo" aria-label="Coding Club Logo">
+        <span class="logo-coding">Cod<span class="logo-i">ı<span class="i-dot"></span></span>ng</span><span class="logo-divider">.</span><span class="logo-club"><span class="logo-letter club-c red">c</span><span class="logo-letter club-l yellow">l</span><span class="logo-letter club-u green">u</span><span class="logo-letter club-b blue">b</span></span>
+      </a>
+      
+      <button class="menu-toggle" id="mobile-menu" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav>
+        <ul class="nav-links" id="nav-links-list">
+          <li><a href="index.html#hero">Home</a></li>
+          <li><a href="index.html#intro">About</a></li>
+          <li><a href="index.html#learn">Skills</a></li>
+          <li class="dropdown">
+            <a href="index.html#divisions" class="dropdown-toggle">Divisions <span class="dropdown-caret">▼</span></a>
+            <ul class="dropdown-menu">
+              <li><a href="webdev.html">Web Dev</a></li>
+              <li><a href="gamedev.html">Game Dev</a></li>
+              <li><a href="python.html">Python</a></li>
+            </ul>
+          </li>
+          <li><a href="index.html#timeline">Achievements</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-cta">
+        <a href="#join-division" class="btn btn-secondary">Join Python</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Division Hero Section -->
+  <section id="division-hero" class="div-hero-sec">
+    <div class="container hero-wrapper">
+      <div class="hero-content reveal reveal-left">
+        <div class="division-badge-pill" style="color: var(--google-green); background-color: var(--google-green-alpha);">Python Division</div>
+        <h1 class="hero-headline">
+          Python<span class="word-green" style="color: var(--google-green);">.</span>
+        </h1>
+        <div class="section-divider divider-green" style="margin: 0; width: 80px; height: 5px; background-color: var(--google-green);"></div>
+        <p class="hero-subtext">
+          A crew of tinkerers automating, analyzing, and building with code. We parse datasets, script tools, and solve algorithms together.
+        </p>
+        <div class="hero-ctas">
+          <a href="#work" class="btn btn-primary" style="background-color: var(--google-green); border-color: var(--google-green); box-shadow: 0 4px 14px var(--google-green-alpha);">See Our Builds</a>
+          <a href="#join-division" class="btn btn-secondary">Join the Crew</a>
+        </div>
+      </div>
+      
+      <!-- Monospace Python REPL Terminal Typing Box -->
+      <div class="showcase-container reveal reveal-right">
+        <div class="browser-mock" style="border-color: rgba(52, 168, 83, 0.15);">
+          <div class="browser-header" style="background-color: #1a2e1e;">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-yellow"></span>
+            <span class="dot dot-green"></span>
+            <div class="browser-tab">repl_sandbox.py</div>
+          </div>
+          <div class="browser-content" style="background-color: #081109; padding: 12px; display: flex; flex-direction: column;">
+            <div class="code-window" id="python-repl-typewriter" style="font-family: 'Fira Code', monospace; font-size: 0.65rem; color: #a1a1a6; text-align: left; line-height: 1.6; height: 100%;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We're About Section -->
+  <section id="about-division" class="section-alt">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <h2>What We're About</h2>
+        <p>No classroom lectures or skill-tier labels here. We run as a unified engineering team.</p>
+        <div class="section-divider divider-green" style="background-color: var(--google-green);"></div>
+      </div>
+
+      <div class="pillars-grid">
+        <!-- Pillar 1 -->
+        <div class="pillar-card reveal" style="transition-delay: 0.1s;">
+          <div class="pillar-icon" style="background-color: var(--google-green-alpha); color: var(--google-green);">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>We build together</h3>
+          <p>
+            We code in pairs, swap scripts, and carry out helpful code reviews. We break down mathematical loops and automate data pipelines together.
+          </p>
+        </div>
+
+        <!-- Pillar 2 -->
+        <div class="pillar-card reveal" style="transition-delay: 0.2s;">
+          <div class="pillar-icon" style="background-color: var(--google-green-alpha); color: var(--google-green);">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <h3>We ship useful things</h3>
+          <p>
+            No mock exercises that stay in your downloads folder. We publish automated data scrapers, folder backups utilities, and fractals visualizers that do work.
+          </p>
+        </div>
+
+        <!-- Pillar 3 -->
+        <div class="pillar-card reveal" style="transition-delay: 0.3s;">
+          <div class="pillar-icon" style="background-color: var(--google-green-alpha); color: var(--google-green);">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+          </div>
+          <h3>Everyone contributes</h3>
+          <p>
+            Whether you are configuring your first terminal variables or training models, you have a task. Beginners write simple helpers, pairing with senior devs.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live Project Showcase Section -->
+  <section id="work">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <h2>Student-Built Showcase</h2>
+        <p>Real scripts, tools, and calculators designed and run by our division members.</p>
+        <div class="section-divider divider-green" style="background-color: var(--google-green);"></div>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="filter-tabs-wrapper reveal">
+        <button class="filter-tab active" data-filter="all" style="--google-blue: var(--google-green); --google-blue-alpha: var(--google-green-alpha);">All Builds</button>
+        <button class="filter-tab" data-filter="automation" style="--google-blue: var(--google-green); --google-blue-alpha: var(--google-green-alpha);">Automation</button>
+        <button class="filter-tab" data-filter="data-viz" style="--google-blue: var(--google-green); --google-blue-alpha: var(--google-green-alpha);">Data & Viz</button>
+        <button class="filter-tab" data-filter="algorithms" style="--google-blue: var(--google-green); --google-blue-alpha: var(--google-green-alpha);">Algorithms</button>
+        <button class="filter-tab" data-filter="utilities" style="--google-blue: var(--google-green); --google-blue-alpha: var(--google-green-alpha);">Utilities</button>
+      </div>
+
+      <!-- Project Grid -->
+      <div class="project-showcase-grid">
+        <!-- Project 1 (Automation) -->
+        <div class="project-card-wrapper reveal" data-category="automation">
+          <div class="browser-mock" style="border-color: rgba(52, 168, 83, 0.1);">
+            <div class="browser-header" style="background-color: #1a2e1e;">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+              <div class="browser-tab">AutoSync</div>
+            </div>
+            <div class="browser-content">
+              <div class="showcase-img-placeholder" style="background-color: #0b1109;">
+                <div class="vector-browser-ui" style="background-color: #050a06; border-color: rgba(52, 168, 83, 0.1); font-family: monospace; font-size: 0.55rem; color: #a1a1a6; padding: 12px; gap: 4px; text-align: left;">
+                  <div>$ python autosync.py --src ./dev</div>
+                  <div style="color: var(--google-green);">[INFO] Scanning src directory...</div>
+                  <div style="color: var(--google-green);">[SUCCESS] Copied 12 files to backups.</div>
+                </div>
+              </div>
+              <div class="project-hover-detail" style="background: rgba(11, 17, 9, 0.98);">
+                <h4>AutoSync</h4>
+                <p>A folder synchronization script to monitor file directory changes and copy backups.</p>
+                <div class="proj-stack">
+                  <span class="stack-tag" style="background-color: var(--google-green-alpha); color: var(--google-green);">Watchdog</span>
+                  <span class="stack-tag" style="background-color: var(--google-green-alpha); color: var(--google-green);">Shutil</span>
+                  <span class="stack-tag" style="background-color: var(--google-green-alpha); color: var(--google-green);">Argparse</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 (Data & Viz) -->
+        <div class="project-card-wrapper reveal" data-category="data-viz">
+          <div class="browser-mock" style="border-color: rgba(52, 168, 83, 0.1);">
+            <div class="browser-header" style="background-color: #1a2e1e;">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+              <div class="browser-tab">PlotStats</div>
+            </div>
+            <div class="browser-content">
+              <div class="showcase-img-placeholder" style="background-color: #0b1109;">
+                <div class="vector-browser-ui" style="background-color: #050a06; border-color: rgba(52, 168, 83, 0.1);">
+                  <!-- Plot viz visualization representation -->
+                  <div class="ui-chart" style="height: 60px; display: flex; align-items: flex-end; gap: 6px; border-bottom: 1.5px solid #a1a1a6; width: 80%; margin: 10px auto 0 auto; padding-bottom: 2px;">
+                    <div class="chart-bar" style="background-color: var(--google-green); border-color: var(--google-green); height: 40%; width: 12px;"></div>
+                    <div class="chart-bar" style="background-color: var(--google-green); border-color: var(--google-green); height: 85%; width: 12px;"></div>
+                    <div class="chart-bar" style="background-color: var(--google-green); border-color: var(--google-green); height: 60%; width: 12px;"></div>
+                    <div class="chart-bar" style="background-color: var(--google-green); border-color: var(--google-green); height: 95%; width: 12px;"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="project-hover-detail" style="background: rgba(11, 17, 9, 0.98);">
+                <h4>PlotStats</h4>
+                <p>A CSV parsing library plotting clean Matplotlib bar graphs and statistics.</p>
+                <div class="proj-stack">
+                  <span class="stack-tag" style="background-color: var(--google-green-alpha); color: var(--google-green);">Pandas</span>
+                  <span class="stack-tag" style="background-color: var(--google-green-alpha); color: var(--google-green);">Matplotlib</span>
+                  <span class="stack-tag" style="background-color: var(--google-green-alpha); color: var(--google-green);">CSV</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 (Algorithms) -->
+        <div class="project-card-wrapper reveal" data-category="algorithms">
+          <div class="browser-mock" style="border-color: rgba(52, 168, 83, 0.1);">
+            <div class="browser-header" style="background-color: #1a2e1e;">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+              <div class="browser-tab">Mandelbrot REPL</div>
+            </div>
+            <div class="browser-content">
+              <div class="showcase-img-placeholder" style="background-color: #0b1109;">
+                <div class="vector-browser-ui" style="background-color: #050a06; border-color: rgba(52, 168, 83, 0.1); font-family: monospace; font-size: 0.5rem; color: var(--google-green); text-align: left; padding: 8px; line-height: 1.2;">
+                  <div>* * . . . . * * *</div>
+                  <div>* . . . . . . * *</div>
+                  <div>. . . # # # . . *</div>
+                  <div>* . . . . . . * *</div>
+                  <div>* * . . . . * * *</div>
+                </div>
+              </div>
+              <div class="project-hover-detail" style="background: rgba(11, 17, 9, 0.98);">
+                <h4>Mandelbrot REPL</h4>
+                <p>A console terminal rendering ASCII fractal visual coordinates on input parameters.</p>
+                <div class="proj-stack">
+                  <span class="stack-tag" style="background-color: var(--google-green-alpha); color: var(--google-green);">NumPy</span>
+                  <span class="stack-tag" style="background-color: var(--google-green-alpha); color: var(--google-green);">Math</span>
+                  <span class="stack-tag" style="background-color: var(--google-green-alpha); color: var(--google-green);">CLI</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4 (Utilities) -->
+        <div class="project-card-wrapper reveal" data-category="utilities">
+          <div class="browser-mock" style="border-color: rgba(52, 168, 83, 0.1);">
+            <div class="browser-header" style="background-color: #1a2e1e;">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+              <div class="browser-tab">ZipTool</div>
+            </div>
+            <div class="browser-content">
+              <div class="showcase-img-placeholder" style="background-color: #0b1109;">
+                <div class="vector-browser-ui" style="background-color: #050a06; border-color: rgba(52, 168, 83, 0.1); font-family: monospace; font-size: 0.55rem; color: #a1a1a6; padding: 12px; text-align: left; gap: 3px;">
+                  <div>$ python ziptool.py archive.zip docs/</div>
+                  <div>Scanning files in docs/...</div>
+                  <div style="color: var(--google-green);">[SUCCESS] Created archive.zip (2.4MB)</div>
+                </div>
+              </div>
+              <div class="project-hover-detail" style="background: rgba(11, 17, 9, 0.98);">
+                <h4>ZipTool</h4>
+                <p>A compress and archive console wrapper to compress files under custom settings.</p>
+                <div class="proj-stack">
+                  <span class="stack-tag" style="background-color: var(--google-green-alpha); color: var(--google-green);">Zipfile</span>
+                  <span class="stack-tag" style="background-color: var(--google-green-alpha); color: var(--google-green);">OS</span>
+                  <span class="stack-tag" style="background-color: var(--google-green-alpha); color: var(--google-green);">Time</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Project Deep-Dive Section -->
+  <section id="deep-dive" class="section-alt">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Flagship Project: MathFractal Engine</h2>
+        <p>The story behind our numpy-optimized ASCII fractal engine rendering complex equations.</p>
+        <div class="section-divider divider-green" style="background-color: var(--google-green); margin-left: 0;"></div>
+      </div>
+
+      <div class="deep-dive-layout">
+        <!-- Story text -->
+        <div class="deep-dive-story reveal reveal-left">
+          <h3>Told as a Team Story</h3>
+          <p>
+            It started during a whiteboard session in Lab Komputer. We wanted a lightweight tool to generate and output Mandelbrot fractal structures in the console without rendering heavy window elements.
+          </p>
+          <p>
+            <strong>The Collaboration:</strong> Sarah worked out the mathematical matrix equations, while Alex wrote the NumPy array broadcasting configurations to speed up math executions. Chris styled the command parameters parser.
+          </p>
+          <p>
+            We hit performance limits when iterating arrays past 100 loops. By mapping the math loops inside memory slices, we optimized it to compile coordinates in less than 8ms. Today, MathFractal Engine displays stunning fractals right in any basic terminal window!
+          </p>
+
+          <div class="dive-tech-stack">
+            <strong>Tech Stack:</strong>
+            <div class="tools-list" style="margin-top: 10px;">
+              <span class="tool-badge">NumPy</span>
+              <span class="tool-badge">Array Broadcasting</span>
+              <span class="tool-badge">ASCII Matrix</span>
+              <span class="tool-badge">Argparse</span>
+            </div>
+          </div>
+
+          <div class="dive-buttons" style="margin-top: 24px;">
+            <a href="#" id="python-flagship-btn" class="btn btn-primary" style="background-color: var(--google-green); border-color: var(--google-green);">Generate Fractal Live</a>
+          </div>
+        </div>
+
+        <!-- Visual layout mock browser -->
+        <div class="deep-dive-visual reveal reveal-right">
+          <div class="browser-mock" style="border-color: rgba(52, 168, 83, 0.15);">
+            <div class="browser-header" style="background-color: #1a2e1e;">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+              <div class="browser-tab">math_fractal_engine.py</div>
+            </div>
+            <div class="browser-content" style="background-color: #050a06; display: flex; align-items: center; justify-content: center; height: 100%; min-height: 320px;">
+              <!-- Mini console preview -->
+              <div style="width: 90%; height: 90%; background-color: #020503; border: 1.5px solid var(--google-green); border-radius: 4px; padding: 12px; font-family: 'Fira Code', monospace; font-size: 0.55rem; color: var(--google-green); display: flex; flex-direction: column; gap: 4px; text-align: left; box-shadow: 0 0 12px rgba(52, 168, 83, 0.25);">
+                <div>$ python math_fractal.py --width 40 --iter 100</div>
+                <div>Generating Mandelbrot set matrix...</div>
+                <div id="python-fractal-output" style="line-height: 1.2; opacity: 0.9; white-space: pre; font-family: 'Fira Code', monospace;">* * . . . . . . . . . . * * * * *
+* * . . . . . . . . . . * * * * *
+* . . . . . . . . . . . . * * *
+. . . . . . # . . . . . . . . *
+. . . . . # # # . . . . . . . . *
+. . . . . . # . . . . . . . . *
+* . . . . . . . . . . . . * * *</div>
+                <div style="color: #ffffff; font-weight: bold;">[SUCCESS] Compile finished in 0.007s.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How to Get Involved Section -->
+  <section id="get-involved">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <h2>Jump In This Week</h2>
+        <p>No roadmaps or certifications required. Just pick a meetup or task and join in.</p>
+        <div class="section-divider divider-green" style="background-color: var(--google-green);"></div>
+      </div>
+
+      <div class="involved-grid">
+        <!-- Next Meetup -->
+        <div class="involved-card reveal" style="transition-delay: 0.1s;">
+          <div class="card-icon" style="background-color: var(--google-green-alpha); color: var(--google-green);">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <h3>Next Build Session</h3>
+          <p class="meetup-time" style="color: var(--google-green);">Every Tuesday & Thursday @ 16:00 WITA</p>
+          <p>Lab Komputer FT UNSRAT, Kampus Bahu.</p>
+          <p class="details">Bring your laptop. We swap scripts, debug database variables, and run array calculations together.</p>
+        </div>
+
+        <!-- Open Issues -->
+        <div class="involved-card reveal" style="transition-delay: 0.2s;">
+          <div class="card-icon" style="background-color: var(--google-green-alpha); color: var(--google-green);">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <h3>Open Tasks Looking for Contributors</h3>
+          <ul class="tasks-list">
+            <li>
+              <strong>#104 Array compilation lag</strong>
+              <span>Numpy matrix slice optimization. (Easy)</span>
+            </li>
+            <li>
+              <strong>#112 Plot coordinate bounds</strong>
+              <span>Graph margins adjustment. (Medium)</span>
+            </li>
+            <li>
+              <strong>#118 Recursion limits</strong>
+              <span>Optimize stack iterations depth. (Hard)</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Community Invite -->
+        <div class="involved-card reveal" style="transition-delay: 0.3s;">
+          <div class="card-icon" style="background-color: var(--google-green-alpha); color: var(--google-green);">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <h3>Join the Community</h3>
+          <p>We coordinate all data files, script repositories, and build meetups through our Discord server.</p>
+          <div class="involvement-buttons" style="margin-top: 20px; display: flex; flex-direction: column; gap: 12px;">
+            <a href="#" class="btn btn-primary" style="justify-content: center; background-color: var(--google-green); border-color: var(--google-green);">Join Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Division CTA Section -->
+  <section id="join-division" class="section-alt">
+    <div class="container text-center">
+      <div class="div-cta-content reveal">
+        <h2 class="cta-headline">Come Build With Us</h2>
+        <p class="cta-subtext" style="max-width: 550px; margin: 0 auto 24px auto;">
+          Whether you are writing your first terminal prints or organizing massive matrix calculations, we invite you to build alongside us.
+        </p>
+        <a href="#" class="btn btn-primary btn-large" style="background-color: var(--google-green); border-color: var(--google-green); box-shadow: 0 4px 14px var(--google-green-alpha);">Join the Python Crew</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer id="main-footer">
+    <div class="container footer-wrapper">
+      <p class="footer-copy">&copy; 2026 Coding Club. Built for developers by developers.</p>
+      <div class="footer-links">
+        <a href="index.html">Homepage</a>
+        <a href="index.html#divisions">Other Divisions</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="script.js" defer></script>
+</body>
+</html>

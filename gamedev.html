@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Dev Division - Coding Club</title>
+  <meta name="description" content="Join the Game Dev Division of Coding Club. A crew of makers building worlds, one playtest at a time. Open to all students at FT UNSRAT.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/webp" href="images/logo.webp">
+  
+  <!-- Preconnect and Async Font Loading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&family=Outfit:wght@500;700;800&family=Fira+Code:wght@500&display=swap" media="print" onload="this.media='all'">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="gamedev-page">
+
+  <!-- Premium Background Elements (Scoped to red) -->
+  <div class="bg-grid-overlay"></div>
+  <div class="ambient-glows">
+    <div class="glow-blob blob-red" style="top: 10%; left: 30%; width: 500px; height: 500px; opacity: 0.15;"></div>
+    <div class="glow-blob blob-red" style="top: 50%; right: 20%; width: 450px; height: 450px; opacity: 0.12;"></div>
+  </div>
+
+  <!-- Interactive Cursor Glow Spotlight -->
+  <div class="cursor-glow" id="cursor-glow"></div>
+
+  <!-- Blueprint Vertical Grid Lines -->
+  <div class="blueprint-grid-lines">
+    <div class="grid-line line-1" style="border-color: rgba(234, 67, 53, 0.035);"></div>
+    <div class="grid-line line-2" style="border-color: rgba(234, 67, 53, 0.035);"></div>
+    <div class="grid-line line-3" style="border-color: rgba(234, 67, 53, 0.035);"></div>
+    <div class="grid-line line-4" style="border-color: rgba(234, 67, 53, 0.035);"></div>
+  </div>
+
+  <!-- Scattered Monospace Code Snippet Watermarks -->
+  <div class="bg-code-watermarks">
+    <div class="watermark wt-left wt-1">ctx.drawImage(sprite, x, y);</div>
+    <div class="watermark wt-right wt-2">requestAnimationFrame(loop);</div>
+    <div class="watermark wt-left wt-3">const audio = new AudioContext();</div>
+    <div class="watermark wt-right wt-4">if (collision(player, enemy)) reset();</div>
+    <div class="watermark wt-left wt-5">physics.applyForce(gravity);</div>
+  </div>
+
+  <!-- Vertical Side Blueprint Rulers -->
+  <div class="bg-ruler bg-ruler-left"></div>
+  <div class="bg-ruler bg-ruler-right"></div>
+
+  <!-- Navigation Bar -->
+  <header id="main-header">
+    <div class="container nav-container">
+      <a href="index.html" class="logo" aria-label="Coding Club Logo">
+        <span class="logo-coding">Cod<span class="logo-i">ı<span class="i-dot"></span></span>ng</span><span class="logo-divider">.</span><span class="logo-club"><span class="logo-letter club-c red">c</span><span class="logo-letter club-l yellow">l</span><span class="logo-letter club-u green">u</span><span class="logo-letter club-b blue">b</span></span>
+      </a>
+      
+      <button class="menu-toggle" id="mobile-menu" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav>
+        <ul class="nav-links" id="nav-links-list">
+          <li><a href="index.html#hero">Home</a></li>
+          <li><a href="index.html#intro">About</a></li>
+          <li><a href="index.html#learn">Skills</a></li>
+          <li class="dropdown">
+            <a href="index.html#divisions" class="dropdown-toggle">Divisions <span class="dropdown-caret">▼</span></a>
+            <ul class="dropdown-menu">
+              <li><a href="webdev.html">Web Dev</a></li>
+              <li><a href="gamedev.html">Game Dev</a></li>
+              <li><a href="python.html">Python</a></li>
+            </ul>
+          </li>
+          <li><a href="index.html#timeline">Achievements</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-cta">
+        <a href="#join-division" class="btn btn-secondary">Join Game Dev</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Division Hero Section -->
+  <section id="division-hero" class="div-hero-sec">
+    <div class="container hero-wrapper">
+      <div class="hero-content reveal reveal-left">
+        <div class="division-badge-pill" style="color: var(--google-red); background-color: var(--google-red-alpha);">Game Development Division</div>
+        <h1 class="hero-headline">
+          Game <span class="word-red" style="color: var(--google-red);">Dev.</span>
+        </h1>
+        <div class="section-divider divider-red" style="margin: 0; width: 80px; height: 5px; background-color: var(--google-red);"></div>
+        <p class="hero-subtext">
+          A crew of makers building worlds, one playtest at a time. We sketch features, write physics loops, and render characters in collaborative labs.
+        </p>
+        <div class="hero-ctas">
+          <a href="#work" class="btn btn-primary" style="background-color: var(--google-red); border-color: var(--google-red); box-shadow: 0 4px 14px var(--google-red-alpha);">Play Our Games</a>
+          <a href="#join-division" class="btn btn-secondary">Join the Crew</a>
+        </div>
+      </div>
+      
+      <!-- Interactive Game Demo Canvas Mockup -->
+      <div class="showcase-container reveal reveal-right">
+        <div class="browser-mock" style="border-color: rgba(234, 67, 53, 0.15);">
+          <div class="browser-header" style="background-color: #2e1a1a;">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-yellow"></span>
+            <span class="dot dot-green"></span>
+            <div class="browser-tab">physics_sandbox.html</div>
+          </div>
+          <div class="browser-content" style="background-color: #110808; display: flex; align-items: center; justify-content: center; height: 100%;">
+            <canvas id="gamedev-canvas" style="width: 100%; height: 100%; max-height: 280px; display: block;"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We're About Section -->
+  <section id="about-division" class="section-alt">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <h2>What We're About</h2>
+        <p>No classroom lectures or skill-tier labels here. We run as a unified engineering team.</p>
+        <div class="section-divider divider-red" style="background-color: var(--google-red);"></div>
+      </div>
+
+      <div class="pillars-grid">
+        <!-- Pillar 1 -->
+        <div class="pillar-card reveal" style="transition-delay: 0.1s;">
+          <div class="pillar-icon" style="background-color: var(--google-red-alpha); color: var(--google-red);">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>We build together</h3>
+          <p>
+            We align level layouts, swap custom audio bytes, and run code review playtests. We design core systems together so no mechanic falls flat.
+          </p>
+        </div>
+
+        <!-- Pillar 2 -->
+        <div class="pillar-card reveal" style="transition-delay: 0.2s;">
+          <div class="pillar-icon" style="background-color: var(--google-red-alpha); color: var(--google-red);">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </div>
+          <h3>We ship playable things</h3>
+          <p>
+            No text slides or drawing boards that sit on your drive. We build and deploy playable browser games, arcade sandboxes, and game engine logic to itch.io.
+          </p>
+        </div>
+
+        <!-- Pillar 3 -->
+        <div class="pillar-card reveal" style="transition-delay: 0.3s;">
+          <div class="pillar-icon" style="background-color: var(--google-red-alpha); color: var(--google-red);">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <h3>Everyone contributes</h3>
+          <p>
+            You don't need to be a heavy programmer. Beginners sketch characters, arrange layout shapes, or record background layers, while seniors organize scripts.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live Project Showcase Section -->
+  <section id="work">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <h2>Student-Built Showcase</h2>
+        <p>Playable browser games designed, coded, and deployed by our division members.</p>
+        <div class="section-divider divider-red" style="background-color: var(--google-red);"></div>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="filter-tabs-wrapper reveal">
+        <button class="filter-tab active" data-filter="all" style="--google-blue: var(--google-red); --google-blue-alpha: var(--google-red-alpha);">All Games</button>
+        <button class="filter-tab" data-filter="platformer" style="--google-blue: var(--google-red); --google-blue-alpha: var(--google-red-alpha);">Platformer</button>
+        <button class="filter-tab" data-filter="puzzle" style="--google-blue: var(--google-red); --google-blue-alpha: var(--google-red-alpha);">Puzzle</button>
+        <button class="filter-tab" data-filter="arcade" style="--google-blue: var(--google-red); --google-blue-alpha: var(--google-red-alpha);">Arcade</button>
+        <button class="filter-tab" data-filter="experimental" style="--google-blue: var(--google-red); --google-blue-alpha: var(--google-red-alpha);">Experimental</button>
+      </div>
+
+      <!-- Project Grid -->
+      <div class="project-showcase-grid">
+        <!-- Game 1 (Platformer) -->
+        <div class="project-card-wrapper reveal" data-category="platformer">
+          <div class="browser-mock" style="border-color: rgba(234, 67, 53, 0.1);">
+            <div class="browser-header" style="background-color: #2e1a1a;">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+              <div class="browser-tab">Gravity Runner</div>
+            </div>
+            <div class="browser-content">
+              <div class="showcase-img-placeholder" style="background-color: #120b0b;">
+                <!-- Retro Game UI Visual mockup -->
+                <div class="vector-browser-ui" style="background-color: #0b0707; border-color: rgba(234, 67, 53, 0.1);">
+                  <div class="game-hud" style="display: flex; justify-content: space-between; font-family: monospace; font-size: 0.55rem; color: var(--google-red); width: 100%;">
+                    <span>SCORE: 01420</span>
+                    <span>LIVES: &hearts;&hearts;&hearts;</span>
+                  </div>
+                  <div style="flex-grow: 1; position: relative; border: 1px dashed rgba(234, 67, 53, 0.2); border-radius: 4px; margin-top: 4px; overflow: hidden;">
+                    <div style="position: absolute; bottom: 8px; left: 10%; width: 50%; height: 4px; background-color: var(--google-red);"></div>
+                    <div style="position: absolute; top: 12px; right: 10%; width: 45%; height: 4px; background-color: var(--google-red);"></div>
+                    <div style="position: absolute; bottom: 12px; left: 25%; width: 8px; height: 8px; background-color: #ffffff; border-radius: 50%; box-shadow: 0 0 6px #ffffff;"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="project-hover-detail" style="background: rgba(18, 11, 11, 0.98);">
+                <h4>Gravity Runner</h4>
+                <p>Run, jump, and invert gravity to bypass obstacles in this fast-paced pixel game.</p>
+                <div class="proj-stack">
+                  <span class="stack-tag" style="background-color: var(--google-red-alpha); color: var(--google-red);">Canvas 2D</span>
+                  <span class="stack-tag" style="background-color: var(--google-red-alpha); color: var(--google-red);">Web Audio</span>
+                  <span class="stack-tag" style="background-color: var(--google-red-alpha); color: var(--google-red);">HTML5</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Game 2 (Puzzle) -->
+        <div class="project-card-wrapper reveal" data-category="puzzle">
+          <div class="browser-mock" style="border-color: rgba(234, 67, 53, 0.1);">
+            <div class="browser-header" style="background-color: #2e1a1a;">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+              <div class="browser-tab">GridLock</div>
+            </div>
+            <div class="browser-content">
+              <div class="showcase-img-placeholder" style="background-color: #120b0b;">
+                <div class="vector-browser-ui" style="background-color: #0b0707; border-color: rgba(234, 67, 53, 0.1); display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; padding: 12px;">
+                  <div style="background-color: var(--google-red-alpha); border-radius: 4px; border: 1px solid var(--google-red);"></div>
+                  <div style="background-color: #1f1414; border-radius: 4px;"></div>
+                  <div style="background-color: var(--google-red-alpha); border-radius: 4px; border: 1px solid var(--google-red);"></div>
+                  <div style="background-color: #1f1414; border-radius: 4px;"></div>
+                  <div style="background-color: var(--google-red); border-radius: 4px; box-shadow: 0 0 6px var(--google-red);"></div>
+                  <div style="background-color: #1f1414; border-radius: 4px;"></div>
+                  <div style="background-color: var(--google-red-alpha); border-radius: 4px; border: 1px solid var(--google-red);"></div>
+                  <div style="background-color: #1f1414; border-radius: 4px;"></div>
+                  <div style="background-color: var(--google-red-alpha); border-radius: 4px; border: 1px solid var(--google-red);"></div>
+                </div>
+              </div>
+              <div class="project-hover-detail" style="background: rgba(18, 11, 11, 0.98);">
+                <h4>GridLock</h4>
+                <p>A slide puzzle resolving pattern matches before the grid locks up.</p>
+                <div class="proj-stack">
+                  <span class="stack-tag" style="background-color: var(--google-red-alpha); color: var(--google-red);">React</span>
+                  <span class="stack-tag" style="background-color: var(--google-red-alpha); color: var(--google-red);">CSS Grid</span>
+                  <span class="stack-tag" style="background-color: var(--google-red-alpha); color: var(--google-red);">Vite</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Game 3 (Arcade) -->
+        <div class="project-card-wrapper reveal" data-category="arcade">
+          <div class="browser-mock" style="border-color: rgba(234, 67, 53, 0.1);">
+            <div class="browser-header" style="background-color: #2e1a1a;">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+              <div class="browser-tab">RetroInvader</div>
+            </div>
+            <div class="browser-content">
+              <div class="showcase-img-placeholder" style="background-color: #120b0b;">
+                <div class="vector-browser-ui" style="background-color: #0b0707; border-color: rgba(234, 67, 53, 0.1); position: relative;">
+                  <div style="position: absolute; top: 10px; left: 10px; width: 10px; height: 10px; background-color: var(--google-red); border-radius: 2px;"></div>
+                  <div style="position: absolute; top: 10px; right: 10px; width: 10px; height: 10px; background-color: var(--google-red); border-radius: 2px;"></div>
+                  <div style="position: absolute; top: 30px; left: 50%; transform: translateX(-50%); width: 10px; height: 10px; background-color: var(--google-red); border-radius: 2px;"></div>
+                  
+                  <div style="position: absolute; bottom: 20px; left: 30%; width: 2px; height: 10px; background-color: #ffffff; box-shadow: 0 0 4px #ffffff;"></div>
+                  <div style="position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%); width: 14px; height: 8px; background-color: #ffffff; border-radius: 2px;"></div>
+                </div>
+              </div>
+              <div class="project-hover-detail" style="background: rgba(18, 11, 11, 0.98);">
+                <h4>RetroInvader</h4>
+                <p>A neon space defender shooting rising blocks and waves of targets.</p>
+                <div class="proj-stack">
+                  <span class="stack-tag" style="background-color: var(--google-red-alpha); color: var(--google-red);">Canvas 2D</span>
+                  <span class="stack-tag" style="background-color: var(--google-red-alpha); color: var(--google-red);">Vanilla JS</span>
+                  <span class="stack-tag" style="background-color: var(--google-red-alpha); color: var(--google-red);">WebAudio</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Game 4 (Experimental) -->
+        <div class="project-card-wrapper reveal" data-category="experimental">
+          <div class="browser-mock" style="border-color: rgba(234, 67, 53, 0.1);">
+            <div class="browser-header" style="background-color: #2e1a1a;">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+              <div class="browser-tab">ScribbleQuest</div>
+            </div>
+            <div class="browser-content">
+              <div class="showcase-img-placeholder" style="background-color: #120b0b;">
+                <div class="vector-browser-ui" style="background-color: #0b0707; border-color: rgba(234, 67, 53, 0.1); position: relative;">
+                  <!-- Curved drawing path representation -->
+                  <svg viewBox="0 0 100 50" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; fill: none; stroke: var(--google-red); stroke-width: 2; stroke-linecap: round;">
+                    <path d="M10,40 Q30,10 50,30 T90,20" />
+                  </svg>
+                  <div style="position: absolute; top: 12px; left: 45px; width: 6px; height: 6px; background-color: #ffffff; border-radius: 50%;"></div>
+                </div>
+              </div>
+              <div class="project-hover-detail" style="background: rgba(18, 11, 11, 0.98);">
+                <h4>ScribbleQuest</h4>
+                <p>A procedural physics drawer letting you sketch platforms to guide the hero.</p>
+                <div class="proj-stack">
+                  <span class="stack-tag" style="background-color: var(--google-red-alpha); color: var(--google-red);">Matter.js</span>
+                  <span class="stack-tag" style="background-color: var(--google-red-alpha); color: var(--google-red);">Canvas 2D</span>
+                  <span class="stack-tag" style="background-color: var(--google-red-alpha); color: var(--google-red);">TypeScript</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Project Deep-Dive Section -->
+  <section id="deep-dive" class="section-alt">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>Flagship Project: Gravity Runner</h2>
+        <p>The story behind our gravity-inverting pixel platformer built with Canvas physics.</p>
+        <div class="section-divider divider-red" style="background-color: var(--google-red); margin-left: 0;"></div>
+      </div>
+
+      <div class="deep-dive-layout">
+        <!-- Story text -->
+        <div class="deep-dive-story reveal reveal-left">
+          <h3>Told as a Team Story</h3>
+          <p>
+            It started during a whiteboard session in Lab Komputer. We wanted to build a simple physics platformer, but with a twist: instead of jumping, the player inverts gravity to walk on the ceiling.
+          </p>
+          <p>
+            <strong>The Collaboration:</strong> Rian architected the rendering pipeline and hitboxes, while Jessica designed the neon sprite coordinates. Chris hooked up the Web Audio oscillator logic to synthesis retro collision noise.
+          </p>
+          <p>
+            We struggled with lag during rapid gravity inversions. After two weeks of playtests and performance refactorings, we replaced standard DOM components with a fast double-buffered canvas draw loop. Today, it runs smoothly at 60 FPS on any laptop!
+          </p>
+
+          <div class="dive-tech-stack">
+            <strong>Tech Stack:</strong>
+            <div class="tools-list" style="margin-top: 10px;">
+              <span class="tool-badge">Canvas 2D</span>
+              <span class="tool-badge">Web Audio API</span>
+              <span class="tool-badge">Physics Interpolation</span>
+              <span class="tool-badge">Local Storage</span>
+            </div>
+          </div>
+
+          <div class="dive-buttons" style="margin-top: 24px;">
+            <a href="#" id="gamedev-flagship-btn" class="btn btn-primary" style="background-color: var(--google-red); border-color: var(--google-red);">Play Gravity Runner</a>
+          </div>
+        </div>
+
+        <!-- Visual layout mock browser -->
+        <div class="deep-dive-visual reveal reveal-right">
+          <div class="browser-mock" style="border-color: rgba(234, 67, 53, 0.15);">
+            <div class="browser-header" style="background-color: #2e1a1a;">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+              <div class="browser-tab">gravity_runner.html</div>
+            </div>
+            <div class="browser-content" style="background-color: #0b0707; display: flex; align-items: center; justify-content: center; height: 100%; min-height: 320px;">
+              <!-- Mini Game cabinet frame -->
+              <div id="gamedev-game-container" style="width: 80%; height: 80%; border: 2px solid var(--google-red); border-radius: 8px; background-color: #120b0b; padding: 12px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 0 15px rgba(234, 67, 53, 0.25);">
+                <div id="gamedev-game-hud" style="font-family: monospace; font-size: 0.65rem; color: var(--google-red); display: flex; justify-content: space-between;">
+                  <span>SCORE: 00000</span>
+                  <span>HI-SCORE: 01420</span>
+                </div>
+                <div id="gamedev-game-screen" style="flex-grow: 1; border: 1px dashed rgba(234, 67, 53, 0.3); border-radius: 4px; margin: 8px 0; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; font-family: monospace;">
+                  <!-- Retro platforms and character representation -->
+                  <div style="position: absolute; top: 16px; left: 15px; width: 35px; height: 4px; background-color: var(--google-red);"></div>
+                  <div style="position: absolute; bottom: 20px; right: 20px; width: 45px; height: 4px; background-color: var(--google-red);"></div>
+                  <div style="position: absolute; top: 20px; left: 24px; width: 8px; height: 8px; background-color: #ffffff; border-radius: 2px; box-shadow: 0 0 8px #ffffff;"></div>
+                </div>
+                <div id="gamedev-game-instruction" style="font-family: monospace; font-size: 0.55rem; color: #a1a1a6; text-align: center; cursor: pointer; user-select: none;">
+                  [CLICK "PLAY GRAVITY RUNNER" TO START]
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How to Get Involved Section -->
+  <section id="get-involved">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <h2>Jump In This Week</h2>
+        <p>No roadmaps or certifications required. Just pick a meetup or task and join in.</p>
+        <div class="section-divider divider-red" style="background-color: var(--google-red);"></div>
+      </div>
+
+      <div class="involved-grid">
+        <!-- Next Meetup -->
+        <div class="involved-card reveal" style="transition-delay: 0.1s;">
+          <div class="card-icon" style="background-color: var(--google-red-alpha); color: var(--google-red);">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <h3>Next Build Session</h3>
+          <p class="meetup-time" style="color: var(--google-red);">Every Tuesday & Thursday @ 16:00 WITA</p>
+          <p>Lab Komputer FT UNSRAT, Kampus Bahu.</p>
+          <p class="details">Bring your laptop. We run multiplayer mechanics playtests, swap coordinates, and sketch layout levels.</p>
+        </div>
+
+        <!-- Open Issues -->
+        <div class="involved-card reveal" style="transition-delay: 0.2s;">
+          <div class="card-icon" style="background-color: var(--google-red-alpha); color: var(--google-red);">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <h3>Open Tasks Looking for Contributors</h3>
+          <ul class="tasks-list">
+            <li>
+              <strong>#104 Gravity inversion lag</strong>
+              <span>WebEngine stage draw optimizations. (Easy)</span>
+            </li>
+            <li>
+              <strong>#112 Sound effects buffer</strong>
+              <span>Oscillator trigger loops. (Medium)</span>
+            </li>
+            <li>
+              <strong>#118 Procedural stage generation</strong>
+              <span>Random platform algorithm loops. (Hard)</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Community Invite -->
+        <div class="involved-card reveal" style="transition-delay: 0.3s;">
+          <div class="card-icon" style="background-color: var(--google-red-alpha); color: var(--google-red);">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <h3>Join the Community</h3>
+          <p>We coordinate all project coordinates, playtest logs, and build schedules through our Discord server.</p>
+          <div class="involvement-buttons" style="margin-top: 20px; display: flex; flex-direction: column; gap: 12px;">
+            <a href="#" class="btn btn-primary" style="justify-content: center; background-color: var(--google-red); border-color: var(--google-red);">Join Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Division CTA Section -->
+  <section id="join-division" class="section-alt">
+    <div class="container text-center">
+      <div class="div-cta-content reveal">
+        <h2 class="cta-headline">Come Build Worlds With Us</h2>
+        <p class="cta-subtext" style="max-width: 550px; margin: 0 auto 24px auto;">
+          Whether you are drawing your first pixel models or coding complex physics matrices, we invite you to build alongside us.
+        </p>
+        <a href="#" class="btn btn-primary btn-large" style="background-color: var(--google-red); border-color: var(--google-red); box-shadow: 0 4px 14px var(--google-red-alpha);">Join the Game Dev Crew</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer id="main-footer">
+    <div class="container footer-wrapper">
+      <p class="footer-copy">&copy; 2026 Coding Club. Built for developers by developers.</p>
+      <div class="footer-links">
+        <a href="index.html">Homepage</a>
+        <a href="index.html#divisions">Other Divisions</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="script.js" defer></script>
+</body>
+</html>
